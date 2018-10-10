@@ -1,0 +1,40 @@
+<div class="form">
+  <form [formGroup]="memberForm" (submit)='onSubmit(memberForm.value)'fxLayout="column">
+
+    <mat-form-field> <label>
+      First Name:
+      <input matInput  type="text" formControlName="firstName">
+    </label></mat-form-field>
+
+    <mat-form-field> <label>
+      Last Name:
+      <input matInput type="text" formControlName="lastName">
+    </label></mat-form-field>
+
+    <mat-form-field> <label>
+      Birthday:
+      <input matInput type="date" formControlName="birthday">
+
+    </label></mat-form-field>
+
+    <mat-form-field> <label>
+      Phone:
+      <input matInput type="text" formControlName="phone">
+      <mat-error *ngIf="!memberForm.get('phone').valid">Please enter a valid email</mat-error>
+
+    </label></mat-form-field>
+
+    <mat-form-field> <label>
+      Email:
+      <input matInput type="text" formControlName="email">
+      <mat-error *ngIf="!memberForm.get('email').valid">Please enter a valid email</mat-error>
+    </label></mat-form-field>
+
+    <mat-form-field> <label>
+      Start Date:
+      <input matInput type="date" formControlName="startDate">
+    </label></mat-form-field>
+<button mat-raised-button color="primary" class="btnSubmit" [disabled]="!memberForm.valid">SUBMIT</button>
+  </form>
+
+</div>
